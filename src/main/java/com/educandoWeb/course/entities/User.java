@@ -2,6 +2,8 @@ package com.educandoWeb.course.entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +17,7 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
+    private List<Order> orderList = new ArrayList<>();
 
     public User(){}
 
@@ -75,5 +78,9 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(getId());
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
     }
 }
