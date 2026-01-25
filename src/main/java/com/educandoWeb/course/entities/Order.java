@@ -4,7 +4,7 @@ package com.educandoWeb.course.entities;
 
 import com.educandoWeb.course.entities.enuns.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 
@@ -23,7 +23,7 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GNT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GM   T")
     private Instant moment;
 
     private Integer orderStatus;
@@ -58,8 +58,12 @@ public class Order implements Serializable {
     }
 
     public OrderStatus getOrderStatus() {
+        if (orderStatus == null) {
+            return null;
+        }
         return OrderStatus.valueOf(orderStatus);
     }
+
 
     public void setOrderStatus(OrderStatus orderStatus) {
         if (orderStatus != null){

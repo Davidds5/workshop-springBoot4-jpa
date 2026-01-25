@@ -3,7 +3,7 @@ package com.educandoWeb.course.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.io.Serial;
+        import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
@@ -46,20 +46,17 @@ public class Category implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Category category)) return false;
-        return Objects.equals(getId(), category.getId()) && Objects.equals(getName(), category.getName());
+        if (this == o) return true;
+        if (!(o instanceof Category)) return false;
+        Category other = (Category) o;
+        return Objects.equals(id, other.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName());
-    }
-
-    public Set<Product> getProducts() {
-        return products;
+        return Objects.hash(id);
     }
 
 }
