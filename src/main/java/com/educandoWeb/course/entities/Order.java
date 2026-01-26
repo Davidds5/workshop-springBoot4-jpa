@@ -11,11 +11,14 @@ import jakarta.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_order")
 public class Order implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -23,7 +26,11 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GM   T")
+    @JsonFormat(
+            shape = JsonFormat.Shape.STRING,
+            pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            timezone = "GMT"
+    )
     private Instant moment;
 
     private Integer orderStatus;
@@ -31,6 +38,9 @@ public class Order implements Serializable {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
+
+    @OneToMany(mappedBy = "id.order")
+    private Set<OrderItem> orderItems = new HashSet<>();
 
     public Order(){}
 
@@ -79,6 +89,18 @@ public class Order implements Serializable {
     public void setClient(User client) {
         this.client = client;
     }
+
+    public Set<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+    public Double getTotal(){
+        double sum = 0.0;
+        for(OrderItem item : orderItems){
+            sum += item.getSubTotal();
+        }
+        return sum;
+    }
+
 
     @Override
     public boolean equals(Object o) {
