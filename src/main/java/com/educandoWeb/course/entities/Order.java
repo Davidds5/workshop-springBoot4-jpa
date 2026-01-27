@@ -5,6 +5,7 @@ package com.educandoWeb.course.entities;
 import com.educandoWeb.course.entities.enuns.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
@@ -41,6 +42,11 @@ public class Order implements Serializable {
 
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> orderItems = new HashSet<>();
+
+    @OneToOne(mappedBy =  "order", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Payment payment;
+
 
     public Order(){}
 
@@ -101,6 +107,13 @@ public class Order implements Serializable {
         return sum;
     }
 
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
 
     @Override
     public boolean equals(Object o) {
