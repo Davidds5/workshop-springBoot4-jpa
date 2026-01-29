@@ -51,7 +51,7 @@ public class UserResources {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping(value = "/{id}")
+    @PutMapping (value = "/{id}")
     public ResponseEntity<User> update(
             @PathVariable Long id,
             @RequestBody User obj){
