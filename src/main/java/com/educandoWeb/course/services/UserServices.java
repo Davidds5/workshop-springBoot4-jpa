@@ -22,7 +22,11 @@ public class UserServices {
     public User findByld(Long id){
         Optional<User> obj = userRepository.findById(id);
         return obj.get();
-
     }
+
+    public User insert(User obj){
+        return userRepository.save(obj);
+    }
+
 
 }

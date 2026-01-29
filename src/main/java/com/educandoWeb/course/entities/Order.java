@@ -99,6 +99,7 @@ public class Order implements Serializable {
     public Set<OrderItem> getOrderItems() {
         return orderItems;
     }
+
     public Double getTotal(){
         double sum = 0.0;
         for(OrderItem item : orderItems){
