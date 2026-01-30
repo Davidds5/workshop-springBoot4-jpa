@@ -4,11 +4,13 @@ import com.educandoWeb.course.entities.User;
 import com.educandoWeb.course.repositories.UserRepository;
 import com.educandoWeb.course.services.exceptions.DataBaseExceptions;
 import com.educandoWeb.course.services.exceptions.ResourceNotFoundExceptions;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,27 +34,30 @@ public class UserServices {
         return userRepository.save(obj);
     }
 
-public void delete(Long id){
+    public void delete(Long id){
         try{
             userRepository.deleteById(id);
         }catch (EmptyResultDataAccessException e){
             throw new ResourceNotFoundExceptions(id);
         }catch (DataIntegrityViolationException e){
-           throw new DataBaseExceptions(e.getMessage());
+            throw new DataBaseExceptions(e.getMessage());
         }
-}
+    }
 
-public User update(Long id, User obj){
-    User entity = userRepository.getReferenceById(id);
-    updateData(entity, obj);
-    return userRepository.save(entity);
-}
+    public User update(Long id, User obj) {
+        User entity = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundExceptions(id));
 
-public void updateData(User entity, User obj){
-    entity.setName(obj.getName());
-    entity.setEmail(obj.getEmail());
-    entity.setPhone(obj.getPhone());
-}
+        updateData(entity, obj);
+        return userRepository.save(entity);
+    }
+
+
+    public void updateData(User entity, User obj){
+        entity.setName(obj.getName());
+        entity.setEmail(obj.getEmail());
+        entity.setPhone(obj.getPhone());
+    }
 
 
 }
