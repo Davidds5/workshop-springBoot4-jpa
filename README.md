@@ -1,157 +1,59 @@
-<h1 align="center">🚀 Workshop Spring Boot + JPA</h1>
+# Web Services com Spring Boot e JPA / Hibernate
 
-<p align="center">
-  Projeto backend desenvolvido em <b>Java com Spring Boot</b>, focado em consolidar fundamentos de
-  <b>APIs REST</b>, <b>JPA/Hibernate</b> e organização em camadas.
-</p>
+## 📌 Descrição
+Projeto de API REST desenvolvido com **Spring Boot**, baseado no curso *Java Completo* do professor **Nélio Alves**, com o objetivo de consolidar conceitos de desenvolvimento backend, persistência de dados e arquitetura em camadas.
 
-<hr/>
+A aplicação simula um sistema de pedidos, usuários e produtos, com regras de negócio, relacionamentos complexos e tratamento de exceções.
 
-<h2>📌 Sobre o projeto</h2>
+---
 
-<p>
-Este projeto faz parte do meu processo de aprendizado contínuo em backend Java.
-O objetivo principal é aplicar conceitos fundamentais de desenvolvimento de APIs REST,
-persistência de dados e boas práticas básicas de organização de código.
-</p>
+## 🧱 Arquitetura
+O projeto segue o padrão de **arquitetura em camadas**:
 
-<p>
-Ao longo do tempo, o projeto será evoluído com refatorações e novas funcionalidades.
-</p>
+- **Resource (Controller)** – Camada de entrada da API
+- **Service** – Regras de negócio
+- **Repository** – Acesso a dados com Spring Data JPA
+- **Entities** – Modelo de domínio
 
-<hr/>
+---
 
-<h2>🛠️ Tecnologias utilizadas</h2>
+## 🛠️ Tecnologias Utilizadas
+- Java
+- Spring Boot
+- Spring Data JPA
+- Hibernate
+- H2 Database (ambiente de teste)
+- PostgreSQL (ambiente de desenvolvimento/produção)
+- Maven
+- Git / GitHub
 
-<ul>
-  <li>Java</li>
-  <li>Spring Boot</li>
-  <li>Spring Data JPA</li>
-  <li>Hibernate</li>
-  <li>Banco de dados H2</li>
-  <li>Maven</li>
-  <li>Postman</li>
-</ul>
+---
 
-<hr/>
+## 📊 Modelo de Domínio
+Principais entidades:
+- User
+- Order
+- Product
+- Category
+- OrderItem (entidade associativa com chave composta)
 
-<h2>📁 Estrutura do projeto</h2>
+Relacionamentos implementados:
+- One-to-Many
+- Many-to-Many
+- Many-to-Many com atributos adicionais
 
-<pre>
-src/main/java/com/educandoWeb/course
-├── config        → Configurações e database seeding
-├── entities      → Entidades JPA
-├── repositories  → Camada de acesso a dados
-├── services      → Regras de negócio
-├── resources     → Controllers REST
-</pre>
+---
 
-<hr/>
+## ⚙️ Funcionalidades
+- CRUD completo de usuários, pedidos, produtos e categorias
+- Persistência de dados com JPA/Hibernate
+- Tratamento de exceções personalizado
+- Configuração de múltiplos perfis de ambiente (test, dev, prod)
+- Banco em memória H2 para testes
 
-<h2>🧱 Modelo de domínio</h2>
+---
 
-<p>O sistema é composto pelas seguintes entidades:</p>
-
-<ul>
-  <li><b>User</b></li>
-  <li><b>Order</b></li>
-  <li><b>Product</b></li>
-  <li><b>Category</b></li>
-</ul>
-
-<p>
-Entre elas, são utilizados relacionamentos como:
-</p>
-
-<ul>
-  <li>OneToMany</li>
-  <li>ManyToMany</li>
-</ul>
-
-<hr/>
-
-<h2>🔁 Funcionalidades</h2>
-
-<ul>
-  <li>API REST para consulta de produtos, categorias, usuários e pedidos</li>
-  <li>Persistência de dados com JPA/Hibernate</li>
-  <li>Relacionamentos entre entidades</li>
-  <li>Database seeding para ambiente de testes</li>
-  <li>Testes de endpoints utilizando Postman</li>
-  <li>Banco de dados H2 com console web</li>
-</ul>
-
-<hr/>
-
-<h2>▶️ Como executar o projeto</h2>
-
-<h3>Pré-requisitos</h3>
-
-<ul>
-  <li>Java 17 ou superior</li>
-  <li>Maven</li>
-</ul>
-
-<h3>Passos</h3>
-
-<pre>
-git clone https://github.com/Davidds5/workshop-springBoot4-jpa
-cd workshop-springBoot4-jpa
-mvn spring-boot:run
-</pre>
-
-<p>A aplicação estará disponível em:</p>
-
-<pre>http://localhost:8080</pre>
-
-<hr/>
-
-<h2>🧪 Testes de API</h2>
-
-<p>
-Os endpoints podem ser testados utilizando o <b>Postman</b>.
-</p>
-
-<pre>
-GET /products
-GET /categories
-GET /users
-GET /orders
-</pre>
-
-<hr/>
-
-<h2>🗄️ Banco de dados H2</h2>
-
-<p>Console disponível em:</p>
-
-<pre>http://localhost:8080/h2-console</pre>
-
-<p><b>Configuração padrão:</b></p>
-
-<ul>
-  <li>JDBC URL: jdbc:h2:mem:testdb</li>
-  <li>User: sa</li>
-  <li>Password: (vazio)</li>
-</ul>
-
-<hr/>
-
-<h2>🚧 Próximas melhorias planejadas</h2>
-
-<ul>
-  <li>Implementação de DTOs</li>
-  <li>Validação de dados com Bean Validation</li>
-  <li>Tratamento global de exceções</li>
-  <li>Paginação e ordenação</li>
-  <li>Melhoria na documentação da API</li>
-</ul>
-
-<hr/>
-
-<h2>👨‍💻 Autor</h2>
-
-<p>
-<b>David Silva</b><br/>
-Estudante de backend Java em constante evolução com Spring Boot.
-</p>
+## 🚀 Como Executar o Projeto
+1. Clonar o repositório:
+```bash
+git clone https://github.com/Davidds5/workshop-springBoot4-jpa.git
