@@ -1,59 +1,156 @@
-# Web Services com Spring Boot e JPA / Hibernate
+<h1 align="center">Workshop Spring Boot 4 + JPA</h1>
 
-## 📌 Descrição
-Projeto de API REST desenvolvido com **Spring Boot**, baseado no curso *Java Completo* do professor **Nélio Alves**, com o objetivo de consolidar conceitos de desenvolvimento backend, persistência de dados e arquitetura em camadas.
+<p align="center">
+  API RESTful desenvolvida com Spring Boot e JPA/Hibernate,
+  aplicando arquitetura em camadas, persistência relacional
+  e boas práticas de desenvolvimento backend.
+</p>
 
-A aplicação simula um sistema de pedidos, usuários e produtos, com regras de negócio, relacionamentos complexos e tratamento de exceções.
+<hr/>
 
----
+<h2>📌 Problema que o projeto resolve</h2>
 
-## 🧱 Arquitetura
-O projeto segue o padrão de **arquitetura em camadas**:
+<p>
+Sistemas empresariais precisam gerenciar dados de forma estruturada,
+segura e consistente. No entanto, muitos projetos iniciantes
+misturam regras de negócio com acesso a dados, não tratam exceções
+corretamente e não seguem padrões de arquitetura.
+</p>
 
-- **Resource (Controller)** – Camada de entrada da API
-- **Service** – Regras de negócio
-- **Repository** – Acesso a dados com Spring Data JPA
-- **Entities** – Modelo de domínio
+<p>
+Este projeto resolve esse problema demonstrando como construir uma
+API REST organizada, utilizando:
+</p>
 
----
+<ul>
+  <li>Separação clara de responsabilidades (Controller, Service, Repository)</li>
+  <li>Mapeamento objeto-relacional com JPA/Hibernate</li>
+  <li>Relacionamentos entre entidades</li>
+  <li>Tratamento adequado de exceções</li>
+  <li>Persistência em banco de dados relacional</li>
+</ul>
 
-## 🛠️ Tecnologias Utilizadas
-- Java
-- Spring Boot
-- Spring Data JPA
-- Hibernate
-- H2 Database (ambiente de teste)
-- PostgreSQL (ambiente de desenvolvimento/produção)
-- Maven
-- Git / GitHub
+<hr/>
 
----
+<h2>🚀 Objetivo do Projeto</h2>
 
-## 📊 Modelo de Domínio
-Principais entidades:
-- User
-- Order
-- Product
-- Category
-- OrderItem (entidade associativa com chave composta)
+<p>
+O objetivo principal é consolidar fundamentos sólidos de backend com Java,
+explorando:
+</p>
 
-Relacionamentos implementados:
-- One-to-Many
-- Many-to-Many
-- Many-to-Many com atributos adicionais
+<ul>
+  <li>Criação de APIs RESTful</li>
+  <li>Modelagem de domínio</li>
+  <li>Relacionamentos entre entidades (@OneToMany, @ManyToOne, etc.)</li>
+  <li>Operações CRUD completas</li>
+  <li>Integração com banco de dados via JPA</li>
+</ul>
 
----
+<hr/>
 
-## ⚙️ Funcionalidades
-- CRUD completo de usuários, pedidos, produtos e categorias
-- Persistência de dados com JPA/Hibernate
-- Tratamento de exceções personalizado
-- Configuração de múltiplos perfis de ambiente (test, dev, prod)
-- Banco em memória H2 para testes
+<h2>🏗 Arquitetura Aplicada</h2>
 
----
+<p>O projeto segue arquitetura em camadas:</p>
 
-## 🚀 Como Executar o Projeto
-1. Clonar o repositório:
-```bash
-git clone https://github.com/Davidds5/workshop-springBoot4-jpa.git
+<ul>
+  <li><strong>Controller:</strong> Responsável pelos endpoints HTTP</li>
+  <li><strong>Service:</strong> Regras de negócio</li>
+  <li><strong>Repository:</strong> Comunicação com o banco de dados</li>
+  <li><strong>Entities:</strong> Modelagem das tabelas</li>
+</ul>
+
+<p>
+Essa estrutura melhora organização, testabilidade e manutenção do sistema.
+</p>
+
+<hr/>
+
+<h2>🛠 Tecnologias Utilizadas</h2>
+
+<ul>
+  <li>Java 17+</li>
+  <li>Spring Boot</li>
+  <li>Spring Data JPA</li>
+  <li>Hibernate</li>
+  <li>Banco de dados relacional (H2 / MySQL)</li>
+  <li>Maven</li>
+</ul>
+
+<hr/>
+
+<h2>🔄 Funcionalidades Implementadas</h2>
+
+<ul>
+  <li>Cadastro de entidades</li>
+  <li>Busca por ID</li>
+  <li>Listagem de registros</li>
+  <li>Atualização de dados</li>
+  <li>Remoção de registros</li>
+  <li>Relacionamentos entre tabelas</li>
+</ul>
+
+<hr/>
+
+<h2>🧠 Conceitos Praticados</h2>
+
+<ul>
+  <li>Injeção de dependência</li>
+  <li>REST e boas práticas HTTP</li>
+  <li>Mapeamento objeto-relacional</li>
+  <li>Tratamento de exceções customizadas</li>
+  <li>Arquitetura limpa e organizada</li>
+</ul>
+
+<hr/>
+
+<h2>📈 Evolução Técnica Demonstrada</h2>
+
+<p>
+Este projeto representa um avanço no entendimento de:
+</p>
+
+<ul>
+  <li>Estruturação profissional de APIs</li>
+  <li>Organização de código em projetos reais</li>
+  <li>Boas práticas no ecossistema Spring</li>
+</ul>
+
+<p>
+Ele serve como base sólida para evoluções futuras como:
+</p>
+
+<ul>
+  <li>Validações com Bean Validation</li>
+  <li>Documentação com Swagger/OpenAPI</li>
+  <li>Testes automatizados (JUnit e Mockito)</li>
+  <li>Segurança com Spring Security e JWT</li>
+  <li>Containerização com Docker</li>
+</ul>
+
+<hr/>
+
+<h2>📎 Como Executar o Projeto</h2>
+
+<ol>
+  <li>Clonar o repositório</li>
+  <li>Acessar a pasta do projeto</li>
+  <li>Executar via Maven:
+    <pre>mvn spring-boot:run</pre>
+  </li>
+</ol>
+
+<p>
+Após iniciar, a API estará disponível em:
+</p>
+
+<pre>http://localhost:8080</pre>
+
+<hr/>
+
+<h2>👨‍💻 Autor</h2>
+
+<p>
+Desenvolvido por <strong>David Silva</strong> como parte do processo de
+aprofundamento em desenvolvimento backend com Java e Spring Boot.
+</p>
